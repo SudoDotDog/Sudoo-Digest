@@ -12,21 +12,20 @@ export type DigestNumericRangeElement = {
     readonly size: number;
 };
 
-export const digestNumericRange = (target: number[]): DigestNumericRangeElement[] => {
+export type DigestNumericRangeResult = DigestNumericRangeElement[];
+
+export const digestNumericRange = (target: number[]): DigestNumericRangeResult => {
 
     if (target.length === 0) {
         return [];
     }
 
-    const result: DigestNumericRangeElement[] = [];
-
-    let currentStart: number = -Infinity;
-    let currentEnd: number = Infinity;
+    const result: DigestNumericRangeResult = [];
 
     for (let i = 0; i < target.length; i++) {
 
-        currentStart = target[0];
-        currentEnd = currentStart;
+        const start: number = target[i];
+        let currentEnd: number = start;
 
         while (target[i + 1] - target[i] === 1) {
 
@@ -36,10 +35,10 @@ export const digestNumericRange = (target: number[]): DigestNumericRangeElement[
 
         result.push({
 
-            start: currentStart,
+            start,
             end: currentEnd,
 
-            size: currentEnd - currentStart + 1,
+            size: currentEnd - start + 1,
         });
     }
 
