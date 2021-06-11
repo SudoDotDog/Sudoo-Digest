@@ -14,3 +14,15 @@ yarn add @sudoo/digest
 # Or
 npm install @sudoo/digest --save
 ```
+
+## Usage
+
+### Digest Numeric Range
+
+```ts
+import { digestNumericRange } from "@sudoo/digest";
+
+const result: DigestNumericRangeResult = digestNumericRange([
+    1, 2, 3, 5, 6, 8,
+]); // [1-3, 5-6, 8]
+```

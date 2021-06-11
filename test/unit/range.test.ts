@@ -34,7 +34,7 @@ describe('Given [DigestNumericRange] function', (): void => {
 
     it('should be able to digest multiple range', (): void => {
 
-        const start: number = 0;
+        const start: number = chance.integer();
         const list: number[] = [
             start,
             start + 1,
